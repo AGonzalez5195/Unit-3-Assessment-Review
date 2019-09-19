@@ -9,7 +9,7 @@
 import UIKit
 
 class PodcastTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var podcastName: UILabel!
     @IBOutlet weak var podcastGenre: UILabel!
     @IBOutlet weak var podcastImage: UIImageView!
@@ -21,7 +21,7 @@ class PodcastTableViewCell: UITableViewCell {
         self.podcastArtist.text = podcast.artistName
         
         if let primaryGenre = podcast.primaryGenreName {
-        self.podcastGenre.text = primaryGenre
+            self.podcastGenre.text = primaryGenre
         } else {
             self.podcastGenre.text = "No Genre"
         }
@@ -29,37 +29,32 @@ class PodcastTableViewCell: UITableViewCell {
         self.spinner.isHidden = false
         self.spinner.startAnimating()
         
-        if let podcastImage = podcast.artworkUrl600 {
-            self.spinner.isHidden = false
-            self.spinner.startAnimating()
-            ImageHelper.shared.fetchImage(urlString: podcastImage) { (result) in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .failure(let error):
-                        print(error)
-                    case .success(let imageFromOnline):
-                        self.podcastImage.image = imageFromOnline
-                        self.spinner.isHidden = true
-                        self.spinner.stopAnimating()
-                    }
+        ImageHelper.shared.getImage(urlStr: podcast.artworkUrl600) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let imageFromOnline):
+                    self.podcastImage.image = imageFromOnline
+                    self.spinner.isHidden = true
+                    self.spinner.stopAnimating()
                 }
             }
-        } else {
-            self.podcastImage.image = #imageLiteral(resourceName: "noimageavailable")
-            self.spinner.isHidden = true
-            self.spinner.stopAnimating()
         }
     }
-        
-        
+     
+    
+
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
-
+    
 }

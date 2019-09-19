@@ -21,6 +21,18 @@ class detailViewController: UIViewController {
     var currentPodcast: Podcast!
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+        
+        let favorite = FavoritePodcast(trackId: currentPodcast.trackId, favoritedBy: "Mr Fat Cock", collectionName: currentPodcast.trackName, artworkUrl600: currentPodcast.artworkUrl600)
+        PodcastAPIManager.shared.postPodcast(podcast: favorite) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    print("we posted our podcast!")
+                case .failure(let error) :
+                    print(error)
+                }
+            }
+        }
     }
     
     
@@ -43,25 +55,19 @@ class detailViewController: UIViewController {
     
     
     private func loadImage(from Podcast: Podcast) {
-        if let podcastImage = Podcast.artworkUrl600 {
-            self.spinner.isHidden = false
-            self.spinner.startAnimating()
-            ImageHelper.shared.fetchImage(urlString: podcastImage) { (result) in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .failure(let error):
-                        print(error)
-                    case .success(let imageFromOnline):
-                        self.podcastImage.image = imageFromOnline
-                        self.spinner.isHidden = true
-                        self.spinner.stopAnimating()
-                    }
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
+        ImageHelper.shared.getImage(urlStr: Podcast.artworkUrl600) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .failure(let error):
+                    print(error)
+                case .success(let imageFromOnline):
+                    self.podcastImage.image = imageFromOnline
+                    self.spinner.isHidden = true
+                    self.spinner.stopAnimating()
                 }
             }
-        } else {
-            self.podcastImage.image = #imageLiteral(resourceName: "noimageavailable")
-            self.spinner.isHidden = true
-            self.spinner.stopAnimating()
         }
     }
     
@@ -69,7 +75,6 @@ class detailViewController: UIViewController {
         super.viewDidLoad()
         configureLayout()
         loadImage(from: currentPodcast)
-        print(currentPodcastExplicitness)
         checkExplicitness()
     }
 }

@@ -14,12 +14,15 @@
 		9740E5842332ABD500BC2E0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9740E5822332ABD500BC2E0A /* LaunchScreen.storyboard */; };
 		9740E58F2332ABD500BC2E0A /* Unit_3_Assessment_ReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E58E2332ABD500BC2E0A /* Unit_3_Assessment_ReviewTests.swift */; };
 		9740E59C2332ACB600BC2E0A /* PodcastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E59B2332ACB600BC2E0A /* PodcastTableViewCell.swift */; };
-		9740E59E2332AE3100BC2E0A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E59D2332AE3100BC2E0A /* NetworkManager.swift */; };
+		9740E59E2332AE3100BC2E0A /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E59D2332AE3100BC2E0A /* NetworkHelper.swift */; };
 		9740E5A02332AE4A00BC2E0A /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E59F2332AE4A00BC2E0A /* AppError.swift */; };
 		9740E5A22332AE5B00BC2E0A /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E5A12332AE5B00BC2E0A /* ImageHelper.swift */; };
 		9740E5A72332AEB500BC2E0A /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E5A62332AEB500BC2E0A /* Podcast.swift */; };
 		9740E5A92332BF8200BC2E0A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E5A82332BF8200BC2E0A /* Extensions.swift */; };
 		9740E5AB2332C14D00BC2E0A /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E5AA2332C14D00BC2E0A /* detailViewController.swift */; };
+		9740E5AD233315B100BC2E0A /* PodcastAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E5AC233315B100BC2E0A /* PodcastAPIManager.swift */; };
+		9740E5AF233318F500BC2E0A /* FavoritePodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E5AE233318F500BC2E0A /* FavoritePodcast.swift */; };
+		9740E5B123332FDC00BC2E0A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740E5B023332FDC00BC2E0A /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,12 +47,15 @@
 		9740E58E2332ABD500BC2E0A /* Unit_3_Assessment_ReviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit_3_Assessment_ReviewTests.swift; sourceTree = "<group>"; };
 		9740E5902332ABD500BC2E0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9740E59B2332ACB600BC2E0A /* PodcastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastTableViewCell.swift; sourceTree = "<group>"; };
-		9740E59D2332AE3100BC2E0A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9740E59D2332AE3100BC2E0A /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		9740E59F2332AE4A00BC2E0A /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		9740E5A12332AE5B00BC2E0A /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		9740E5A62332AEB500BC2E0A /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		9740E5A82332BF8200BC2E0A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9740E5AA2332C14D00BC2E0A /* detailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
+		9740E5AC233315B100BC2E0A /* PodcastAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastAPIManager.swift; sourceTree = "<group>"; };
+		9740E5AE233318F500BC2E0A /* FavoritePodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePodcast.swift; sourceTree = "<group>"; };
+		9740E5B023332FDC00BC2E0A /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,9 +122,11 @@
 		9740E5A32332AE7100BC2E0A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				9740E59D2332AE3100BC2E0A /* NetworkManager.swift */,
+				9740E59D2332AE3100BC2E0A /* NetworkHelper.swift */,
 				9740E59F2332AE4A00BC2E0A /* AppError.swift */,
 				9740E5A12332AE5B00BC2E0A /* ImageHelper.swift */,
+				9740E5B023332FDC00BC2E0A /* ImageCache.swift */,
+				9740E5AC233315B100BC2E0A /* PodcastAPIManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -127,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				9740E5A62332AEB500BC2E0A /* Podcast.swift */,
+				9740E5AE233318F500BC2E0A /* FavoritePodcast.swift */,
 				9740E59B2332ACB600BC2E0A /* PodcastTableViewCell.swift */,
 			);
 			path = Models;
@@ -242,13 +251,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9740E59E2332AE3100BC2E0A /* NetworkManager.swift in Sources */,
+				9740E59E2332AE3100BC2E0A /* NetworkHelper.swift in Sources */,
 				9740E5A72332AEB500BC2E0A /* Podcast.swift in Sources */,
 				9740E5AB2332C14D00BC2E0A /* detailViewController.swift in Sources */,
 				9740E59C2332ACB600BC2E0A /* PodcastTableViewCell.swift in Sources */,
 				9740E5A92332BF8200BC2E0A /* Extensions.swift in Sources */,
+				9740E5AD233315B100BC2E0A /* PodcastAPIManager.swift in Sources */,
+				9740E5B123332FDC00BC2E0A /* ImageCache.swift in Sources */,
 				9740E5A02332AE4A00BC2E0A /* AppError.swift in Sources */,
 				9740E57C2332ABD400BC2E0A /* SearchPodcastViewController.swift in Sources */,
+				9740E5AF233318F500BC2E0A /* FavoritePodcast.swift in Sources */,
 				9740E57A2332ABD400BC2E0A /* AppDelegate.swift in Sources */,
 				9740E5A22332AE5B00BC2E0A /* ImageHelper.swift in Sources */,
 			);

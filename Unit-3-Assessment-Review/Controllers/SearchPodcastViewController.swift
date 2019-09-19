@@ -19,16 +19,16 @@ class SearchPodcastViewController: UIViewController {
         }
     }
     
-    var searchString = "" {
+    var searchString = String() {
         didSet {
-            let userEnteredString = searchString.replacingOccurrences(of: " ", with: "+").lowercased()
-            loadData(newString: userEnteredString)
+            loadData()
         }
     }
+    //Every time this is set, the data is loaded with the searchString being passed to the PodcastAPIManager.shared.getPodcasts function.
     
     
-    private func loadData(newString: String) {
-        PodcastModel.getPodcastData(from: newString){ (result) in
+    private func loadData() {
+        PodcastAPIManager.shared.getPodcasts(searchQuery: searchString){ (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .failure(let error):
@@ -39,6 +39,7 @@ class SearchPodcastViewController: UIViewController {
             }
         }
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let segueIdentifer = segue.identifier else {fatalError("No identifier in segue")}
@@ -73,8 +74,6 @@ extension SearchPodcastViewController: UITableViewDataSource {
         cell.configureCell(from: specificPodcast)
         return cell
     }
-    
-    
 }
 
 extension SearchPodcastViewController: UITableViewDelegate {
@@ -91,5 +90,4 @@ extension SearchPodcastViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
-    
 }
